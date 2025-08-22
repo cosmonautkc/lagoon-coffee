@@ -34,4 +34,5 @@
   /* Breakpoints */
   --breakpoint-3xl: 120rem;
   --breakpoint-xs: 31.3125rem;
+  --breakpoint-xxl: 87.5rem;
 }
