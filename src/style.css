@@ -36,3 +36,19 @@
   --breakpoint-xs: 31.3125rem;
   --breakpoint-xxl: 87.5rem;
 }
+
+.active {
+  color: #2c7a7b;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.inactive {
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.inactive:hover,
+.active:hover {
+  transform: translateY(-4px);
+}
