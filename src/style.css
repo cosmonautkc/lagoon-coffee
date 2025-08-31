@@ -52,3 +52,8 @@
 .active:hover {
   transform: translateY(-4px);
 }
+
+.btn-hover:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease-in-out;
+}
