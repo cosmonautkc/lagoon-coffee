@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lagoon Coffee | Café & Community Space</title>
-    <script type="module" src="/src/main.js"></script>
   </head>
   <body id="home" class="preload bg-main font-body overflow-x-hidden">
     <div class="relative bg-[url('/img/hero-bg.jpg')] bg-fixed bg-cover bg-center">
@@ -55,7 +54,7 @@
             >
               <a
                 href="#home"
-                role="menu-link"
+                role="menuitem"
                 class="text-2xl text-main mr-auto cursor-pointer font-brand"
                 >Lagoon</a
               >
@@ -78,11 +77,11 @@
               </button>
             </div>
             <div class="flex flex-col gap-7 font-brand px-8">
-              <a href="#menu" role="menu-link" class="w-fit cursor-pointer btn-underline">Menu</a>
-              <a href="#products" role="menu-link" class="w-fit cursor-pointer btn-underline"
+              <a href="#menu" role="menuitem" class="w-fit cursor-pointer btn-underline">Menu</a>
+              <a href="#products" role="menuitem" class="w-fit cursor-pointer btn-underline"
                 >Products</a
               >
-              <a href="#about" role="menu-link" class="w-fit cursor-pointer btn-underline">About</a>
+              <a href="#about" role="menuitem" class="w-fit cursor-pointer btn-underline">About</a>
               </div>
         </div>
       </aside>
@@ -103,12 +102,9 @@
                 Whether you’re local or just passing through, you belong here.
               </h2>
               <div class="flex flex-row gap-4 pt-3 max-sm:max-w-2xl flex-wrap">
-                <button
-                  class="text-nowrap px-6 py-3 bg-[#2E5E5E] rounded-2xl font-brand btn-hover"
-                >
                   <a
                     href="#menu"
-                    class="text-h3 flex flex-row items-center gap-2"
+                    class="text-nowrap px-6 py-3 bg-[#2E5E5E] rounded-2xl font-brand btn-hover text-h3 flex flex-row items-center gap-2"
                     >Fuel up
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -125,12 +121,7 @@
                       />
                     </svg>
                   </a>
-                </button>
-                <button
-                  class="text-nowrap px-6 py-3 border-2 border-main rounded-2xl font-brand btn-hover"
-                >
-                  <a href="#about" class="text-h3">Visit us</a>
-                </button>
+                  <a href="#about" class=" text-nowrap px-6 py-3 border-2 border-main rounded-2xl font-brand btn-hover text-h3">Visit us</a>
               </div>
             </div>
           </div>
@@ -164,10 +155,7 @@
             to. Whether you’re grabbing a quick espresso or staying to linger
             with a latte, our doors — and our mugs — are always open.
           </p>
-          <button
-            class="px-6 py-3 mt-4 border-2 border-accent rounded-2xl text-accent font-brand"
-          >
-            <a href="#visit" class="text-body flex flex-row items-center gap-2"
+            <a href="#visit" class="px-6 py-3 mt-4 border-2 border-accent rounded-2xl text-accent font-brand text-body flex flex-row items-center gap-2"
               >Visit us
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -184,20 +172,17 @@
                 />
               </svg>
             </a>
-          </button>
         </div>
       </div>
     </div>
 
-    
-    <section id="menu">
-      <div class="text-accent flex flex-col justify-center items-center">
-        <h1 class="font-brand text-h1">Menu</h1>
-  </div>
+
+  <div class="text-accent flex flex-col justify-center items-center">
+  <h1 class="font-brand text-h1">Menu</h1>
   <section class="w-full py-15 my-5 bg-[#2E5E5E]">
     <div class="max-w-6xl mx-auto">
       <div class="max-w-7xl mx-auto px-16 bg-main">
-        <div aria-label="tabs" class="flex flex-col py-6">
+        <nav aria-label="tab" class="flex flex-col py-6">
           <div
           class="flex justify-between overflow-x-auto text-h3 text-accent font-brand pb-8"
           >
@@ -246,11 +231,11 @@
           >
             Specials
           </button>
-        </div>
+        </nav>
         
         <div
         class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory active-section"
-        role="tabsection"
+        role="tabpanel"
         aria-hidden="false"
         id="section1"
         >
@@ -283,7 +268,7 @@
 
       <div
         class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
-        role="tabsection"
+        role="tabpanel"
         aria-hidden="true"
         id="section2"
         >
@@ -316,7 +301,7 @@
 
       <div
         class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
-        role="tabsection"
+        role="tabpanel"
         aria-hidden="true"
         id="section3"
         >
@@ -349,7 +334,7 @@
 
       <div
         class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
-        role="tabsection"
+        role="tabpanel"
         aria-hidden="true"
         id="section4"
         >
@@ -382,7 +367,7 @@
 
       <div
         class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
-        role="tabsection"
+        role="tabpanel"
         aria-hidden="true"
         id="section5"
         >
@@ -415,6 +400,7 @@
     </div>
   </div>
 </section>
+<script type="module" src="/src/main.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   const openMenu = document.getElementById('open-menu');
@@ -431,7 +417,7 @@
     mobileMenu.classList.add('close-nav');
   });
 
-const mobileLinks = document.querySelectorAll('[role=menu-link]');
+const mobileLinks = document.querySelectorAll('[role=menuitem]');
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open-nav');
@@ -445,7 +431,7 @@ window.addEventListener('load', () => {
 });
 
 const tabs = document.querySelectorAll("[role=tab]");
-const sections = document.querySelectorAll("[role=tabsection]");
+const sections = document.querySelectorAll("[role=tabpanel]");
 
 tabs.forEach((tab) => {
  tab.addEventListener("click", () => {
