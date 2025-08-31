@@ -6,7 +6,7 @@
     <title>tailwind-template</title>
     <script type="module" src="/src/main.js"></script>
   </head>
-  <body id="home" class="bg-main font-body overflow-x-hidden">
+  <body id="home" class="preload bg-main font-body overflow-x-hidden">
     <div class="relative bg-[url('/img/hero-bg.jpg')] bg-fixed bg-cover bg-center">
       <div class="absolute inset-0 z-0 bg-black/30"></div>
       <div class="relative z-10">
@@ -48,13 +48,14 @@
           </div>
         </nav>
         
-        <aside id="mobile-nav" class="close-nav bg-main/30 backdrop-blur-md">
+        <aside id="mobile-nav" class="close-nav bg-accent/30 backdrop-blur-md">
           <div class="max-w-6xl mx-auto px-7">
             <div
               class="flex justify-between items-center pb-9 border-2 border-transparent px-8"
             >
               <a
                 href="#home"
+                role="menu-link"
                 class="text-2xl text-main mr-auto cursor-pointer font-brand"
                 >Lagoon</a
               >
@@ -77,11 +78,11 @@
               </button>
             </div>
             <div class="flex flex-col gap-7 font-brand px-8">
-              <a href="#menu" class="w-fit cursor-pointer btn-underline">Menu</a>
-              <a href="#products" class="w-fit cursor-pointer btn-underline"
+              <a href="#menu" role="menu-link" class="w-fit cursor-pointer btn-underline">Menu</a>
+              <a href="#products" role="menu-link" class="w-fit cursor-pointer btn-underline"
                 >Products</a
               >
-              <a href="#about" class="w-fit cursor-pointer btn-underline">About</a>
+              <a href="#about" role="menu-link" class="w-fit cursor-pointer btn-underline">About</a>
               </div>
         </div>
       </aside>
@@ -359,5 +360,34 @@
     </div>
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const openMenu = document.getElementById('open-menu');
+  const closeMenu = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-nav');
+
+  openMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('close-nav');
+    mobileMenu.classList.add('open-nav');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('open-nav');
+    mobileMenu.classList.add('close-nav');
+  });
+
+const mobileLinks = document.querySelectorAll('[role=menu-link]');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open-nav');
+      mobileMenu.classList.add('close-nav');
+    });
+  });
+});
+
+window.addEventListener('load', () => {
+  document.body.classList.remove('preload');
+});
+</script>
 </body>
 </html>
