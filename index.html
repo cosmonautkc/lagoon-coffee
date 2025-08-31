@@ -197,19 +197,62 @@
   <section class="w-full py-15 my-5 bg-[#2E5E5E]">
     <div class="max-w-6xl mx-auto">
       <div class="max-w-7xl mx-auto px-16 bg-main">
-        <div class="flex flex-col py-6">
+        <div aria-label="tabs" class="flex flex-col py-6">
           <div
           class="flex justify-between overflow-x-auto text-h3 text-accent font-brand pb-8"
           >
-          <a href="/" class="px-8 active">Coffee</a>
-          <a href="/" class="px-8 inactive">Tea</a>
-          <a href="/" class="px-8 text-nowrap inactive">Iced Drinks</a>
-          <a href="/" class="px-8 inactive">Pastries</a>
-          <a href="/" class="px-8 inactive">Specials</a>
+          <button
+            data-target="section1"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            class="px-8 active"
+          >
+            Coffee
+          </button>
+          <button
+            data-target="section2"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            class="px-8 inactive"
+          >
+            Tea
+          </button>
+          <button
+            data-target="section3"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            class="px-8 inactive text-nowrap"
+          >
+            Iced Drinks
+          </button>
+          <button
+            data-target="section4"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            class="px-8 inactive"
+          >
+            Pastries
+          </button>
+          <button
+            data-target="section5"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            class="px-8 inactive"
+          >
+            Specials
+          </button>
         </div>
         
         <div
-        class="flex gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory"
+        class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory active-section"
+        role="tabsection"
+        aria-hidden="false"
+        id="section1"
         >
         <img
         class="block aspect-square w-72 object-cover snap-center shrink-0"
@@ -239,7 +282,10 @@
       </div>
 
       <div
-        class="flex gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory"
+        class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
+        role="tabsection"
+        aria-hidden="true"
+        id="section2"
         >
         <img
         class="block aspect-square w-72 object-cover snap-center shrink-0"
@@ -269,7 +315,10 @@
       </div>
 
       <div
-        class="flex gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory"
+        class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
+        role="tabsection"
+        aria-hidden="true"
+        id="section3"
         >
         <img
         class="block aspect-square w-72 object-cover snap-center shrink-0"
@@ -299,7 +348,10 @@
       </div>
 
       <div
-        class="flex gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory"
+        class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
+        role="tabsection"
+        aria-hidden="true"
+        id="section4"
         >
         <img
         class="block aspect-square w-72 object-cover snap-center shrink-0"
@@ -329,7 +381,10 @@
       </div>
 
       <div
-        class="flex gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory"
+        class="gap-5 max-xxl:snap-x overflow-x-auto max-xxl:snap-mandatory inactive-section"
+        role="tabsection"
+        aria-hidden="true"
+        id="section5"
         >
         <img
         class="block aspect-square w-72 object-cover snap-center shrink-0"
@@ -387,6 +442,31 @@ const mobileLinks = document.querySelectorAll('[role=menu-link]');
 
 window.addEventListener('load', () => {
   document.body.classList.remove('preload');
+});
+
+const tabs = document.querySelectorAll("[role=tab]");
+const sections = document.querySelectorAll("[role=tabsection]");
+
+tabs.forEach((tab) => {
+ tab.addEventListener("click", () => {
+  tabs.forEach((tab) => tab.setAttribute('aria-selected', 'false'));
+
+  tab.setAttribute('aria-selected', 'true');
+  tabs.forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+
+
+  sections.forEach((section) => {
+  section.setAttribute('aria-hidden', 'true');
+  section.classList.add('inactive-section');
+  section.classList.remove('active-section');
+  });
+
+  const targetSection = document.getElementById(tab.dataset.target);
+  targetSection.setAttribute('aria-hidden', 'false');
+  targetSection.classList.add('active-section');
+  targetSection.classList.remove('inactive-section');
+  });
 });
 </script>
 </body>
