@@ -93,11 +93,3 @@
   transition: none !important;
   -webkit-transition: none !important;
 }
-
-.active-section {
-  @apply flex transition-all duration-300 ease-in-out opacity-100 translate-y-2;
-}
-
-.inactive-section {
-  @apply hidden transition-all duration-300 ease-in-out opacity-0 translate-y-0;
-}
