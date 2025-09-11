@@ -93,3 +93,27 @@
   transition: none !important;
   -webkit-transition: none !important;
 }
+
+.about-btn {
+  @apply px-6 py-3 border-2 border-accent rounded-2xl bg-transparent transition-all duration-500 relative z-10 overflow-hidden;
+}
+
+.about-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  background: #523b2c;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.about-btn:hover::before {
+  height: 100%;
+}
+
+.about-btn:hover {
+  color: #fdf6e3;
+}
