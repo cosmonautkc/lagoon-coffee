@@ -121,3 +121,7 @@
 .menu-content {
   @apply flex pb-8 mb-8 border-b-2 border-brand;
 }
+
+.p1 {
+  @apply ml-auto flex items-center justify-center;
+}
