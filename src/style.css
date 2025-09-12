@@ -117,3 +117,7 @@
 .about-btn:hover {
   color: #fdf6e3;
 }
+
+.menu-content {
+  @apply flex pb-8 mb-8 border-b-2 border-brand;
+}
