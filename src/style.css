@@ -118,8 +118,14 @@
   color: #fdf6e3;
 }
 
-.menu-content {
-  @apply flex pb-8 mb-8 border-b-2 border-brand;
+.menu-content1 {
+  @apply flex pb-8 mb-5 border-b-2 border-[#6d9393];
+}
+.menu-content2 {
+  @apply flex pb-8 mb-5 border-b-2 border-[#4c6f6f];
+}
+.menu-content3 {
+  @apply flex pb-8 mb-5 border-b-2 border-[#6d9898];
 }
 
 .p1 {
